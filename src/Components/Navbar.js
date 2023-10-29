@@ -1,81 +1,93 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
-import List from '@mui/material/List';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import Box from '@mui/joy/Box';
+import IconButton from '@mui/joy/IconButton';
+import Drawer from '@mui/joy/Drawer';
+import Input from '@mui/joy/Input';
+import List from '@mui/joy/List';
+import ListItemButton from '@mui/joy/ListItemButton';
+import Typography from '@mui/joy/Typography';
+import ModalClose from '@mui/joy/ModalClose';
+import Menu from '@mui/icons-material/Menu';
+import Search from '@mui/icons-material/Search';
 
-export default function TemporaryDrawer() {
-  const [state, setState] = React.useState({
-    top: false,
-    left: false,
-    bottom: false,
-    right: false,
-  });
-
-  const toggleDrawer = (anchor, open) => (event) => {
-    if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
-      return;
-    }
-
-    setState({ ...state, [anchor]: open });
-  };
-
-  const list = (anchor) => (
-    <Box
-      sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
-      role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
-    >
-      <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
+export default function DrawerMobileNavigation() {
+  const [open, setOpen] = React.useState(false);
 
   return (
-    <div>
-      {['left', 'right', 'top', 'bottom'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
+    <React.Fragment>
+      <IconButton variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+        <Menu />
+      </IconButton>
+      <Drawer open={open} onClose={() => setOpen(false)}>
+        <Box
+          sx={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 0.5,
+            ml: 'auto',
+            mt: 1,
+            mr: 2,
+          }}
+        >
+          <Typography
+            component="label"
+            htmlFor="close-icon"
+            fontSize="sm"
+            fontWeight="lg"
+            sx={{ cursor: 'pointer' }}
           >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
+            Close
+          </Typography>
+          <ModalClose id="close-icon" sx={{ position: 'initial' }} />
+        </Box>
+        <Input
+          size="sm"
+          placeholder="Search"
+          variant="plain"
+          endDecorator={<Search />}
+          slotProps={{
+            input: {
+              'aria-label': 'Search anything',
+            },
+          }}
+          sx={{
+            m: 3,
+            borderRadius: 0,
+            borderBottom: '2px solid',
+            borderColor: 'neutral.outlinedBorder',
+            '&:hover': {
+              borderColor: 'neutral.outlinedHoverBorder',
+            },
+            '&::before': {
+              border: '1px solid var(--Input-focusedHighlight)',
+              transform: 'scaleX(0)',
+              left: 0,
+              right: 0,
+              bottom: '-2px',
+              top: 'unset',
+              transition: 'transform .15s cubic-bezier(0.1,0.9,0.2,1)',
+              borderRadius: 0,
+            },
+            '&:focus-within::before': {
+              transform: 'scaleX(1)',
+            },
+          }}
+        />
+        <List
+          size="lg"
+          component="nav"
+          sx={{
+            flex: 'none',
+            fontSize: 'xl',
+            '& > div': { justifyContent: 'center' },
+          }}
+        >
+          <ListItemButton sx={{ fontWeight: 'lg' }}>Home</ListItemButton>
+          <ListItemButton>About</ListItemButton>
+          <ListItemButton>Studio</ListItemButton>
+          <ListItemButton>Contact</ListItemButton>
+        </List>
+      </Drawer>
+    </React.Fragment>
   );
 }
