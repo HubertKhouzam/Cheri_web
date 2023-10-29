@@ -15,7 +15,7 @@ export default function DrawerMobileNavigation() {
 
   return (
     <React.Fragment>
-      <IconButton variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+      <IconButton variant="outlined" color="white" onClick={() => setOpen(true)}>
         <Menu />
       </IconButton>
       <Drawer open={open} onClose={() => setOpen(false)}>
