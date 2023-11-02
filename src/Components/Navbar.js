@@ -16,13 +16,14 @@ function Navigation({ color }) {
               color: color,
               fontSize: '50px',
               padding: "0",
-              margin: "0"
+              margin: "0",
+              fontFamily: 'cursive'
             }}
           >
             Chéri
           </Navbar.Brand>
           <Nav>
-            <Nav.Link href="https://forms.gle/d3T6kzqxsTZBoELS9" target = "_blank">Shop</Nav.Link>
+            <Nav.Link href="https://docs.google.com/forms/d/e/1FAIpQLScM7__ojExSwCWYddMCdrNqie3b9DMO6MX6Yt1sJCsZBqE7_A/viewform" target = "_blank">Shop</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
