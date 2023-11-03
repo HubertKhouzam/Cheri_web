@@ -14,7 +14,7 @@ export default function MenuCheri() {
   
     return (
       <React.Fragment>
-        <IconButton className ="bg-green-400" variant="outlined" color="neutral" onClick={() => setOpen(true)}>
+        <IconButton className ="bg-green-400"  color="neutral" onClick={() => setOpen(true)}>
           <Menu />
         </IconButton>
         <Drawer open={open} onClose={() => setOpen(false)}>
@@ -26,6 +26,7 @@ export default function MenuCheri() {
               ml: 'auto',
               mt: 1,
               mr: 2,
+              
               
             }}
           >

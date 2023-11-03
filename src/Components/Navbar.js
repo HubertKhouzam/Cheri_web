@@ -14,13 +14,14 @@ function Navigation({ color }) {
             href="/"
             style={{
               color: color,
-              fontSize: '50px',
+              fontSize: '30px',
               padding: "0",
               margin: "0",
-              fontFamily: 'cursive'
+              textAlign: 'center',
+              fontFamily:"times-new-roman"
             }}
           >
-            Chéri
+            They don't make them like this anymore
           </Navbar.Brand>
           <Nav>
             <Nav.Link href="https://docs.google.com/forms/d/e/1FAIpQLScM7__ojExSwCWYddMCdrNqie3b9DMO6MX6Yt1sJCsZBqE7_A/viewform" target = "_blank">Shop</Nav.Link>
