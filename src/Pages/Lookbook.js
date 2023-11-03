@@ -6,11 +6,6 @@ import {
 import Navigation from '../Components/Navbar';
 import { Margin } from '@mui/icons-material';
 
-
-
-
-
-
 export default function App() {
   return (
     <div>
