@@ -21,6 +21,7 @@
     "material-ui-icons": "^1.0.0-beta.36",
     "mdb-react-ui-kit": "^6.3.0",
     "mdb-ui-kit": "^6.4.2",
+    "npm": "^10.2.3",
     "postcss": "^8.4.31",
     "postcss-cli": "^10.1.0",
     "react": "^18.2.0",
