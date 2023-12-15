@@ -1,7 +1,8 @@
 .tamere {
-  background-image: url("./photos_khai/DSC03059.jpg");
+  background-image: url("../public/photos_khai/DSC03059.jpg");
   background-size: cover;
-  background-position: 50% 37%;
+  background-position: center;
   min-height: 100vh;
   margin: 0;
 }
+

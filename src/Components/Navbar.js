@@ -10,18 +10,8 @@ function Navigation({ color }) {
       <Navbar>
         <Container className="font-serif font-georgia">
           <MenuCheri />
-          <Navbar.Brand
-            href="/"
-            style={{
-              color: color,
-              fontSize: '30px',
-              padding: "0",
-              margin: "0",
-              textAlign: 'center',
-              fontFamily:"times-new-roman"
-            }}
-          >
-            They don't make them like this anymore
+          <Navbar.Brand href="/" style={{ color: color, padding: "0", margin: "0", textAlign: 'center', fontFamily: "times-new-roman" }}>
+            <div className="text-base md:text-2xl">They don't make them like this anymore</div>
           </Navbar.Brand>
           <Nav>
             <Nav.Link href="https://docs.google.com/forms/d/e/1FAIpQLScM7__ojExSwCWYddMCdrNqie3b9DMO6MX6Yt1sJCsZBqE7_A/viewform" target = "_blank">Shop</Nav.Link>

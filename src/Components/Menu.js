@@ -50,12 +50,13 @@ export default function MenuCheri() {
               '& > div': { justifyContent: 'center' },
             }}
           >
-            <ListItemButton className ="text-black" sx={{ fontWeight: 'lg'}}>
-              <Link to = "/" style={{ color: 'black' }}> Home </Link>
+            <ListItemButton component={Link} to="/" sx={{ fontWeight: 'lg', textAlign: 'center', width: '100%', justifyContent: 'center' }}>
+              Home
             </ListItemButton>
-            <ListItemButton>
-              <Link to = "/Lookbook" style={{ color: 'black' }}> Lookbook </Link>
+            <ListItemButton component={Link} to="/Lookbook" sx={{ fontWeight: 'lg', textAlign: 'center', width: '100%', justifyContent: 'center' }}>
+              Lookbook
             </ListItemButton>
+
           </List>
         </Drawer>
       </React.Fragment>
